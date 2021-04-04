@@ -1,0 +1,7 @@
+extends layout
+
+block content
+	include picross
+	+game_board(x, y, hints)
+	.row
+		textarea#json.form-control(name="", cols="30", rows="10", readonly) 

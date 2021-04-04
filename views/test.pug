@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	include picross
+	+board(10, 10)
+	.row
+		button.btn.btn-primary(onclick="compute()") Compute!
+	.row
+		textarea#json.form-control(name="", cols="30", rows="10", readonly) 

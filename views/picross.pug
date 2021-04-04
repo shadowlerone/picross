@@ -1,0 +1,30 @@
+mixin board(x, y)
+	//- x -> i; y -> j
+	table#board.table.table-bordered.table-hover.table-responsive
+		tr.h
+			for i in [...Array(x+1).keys()]
+				if i != 0
+					th.hint.hintx(id="hintx"+(i-1))="hint"
+				else 
+					th
+		for j in [...Array(y).keys()]
+			tr
+				th.hint.hinty(id="hinty"+j)="hint"
+				for i in [...Array(x).keys()]
+					td.pixel
+						input.mx-auto(id=i.toString()+j.toString(), type="checkbox", onchange="verify()")
+
+mixin game_board(x,y, hints)
+	table#board.table.table-bordered.table-hover.table-responsive
+			tr.h
+				for i in [...Array(x+1).keys()]
+					if i != 0
+						th.hint.hintx(id="hintx"+(i-1))=hints.x[i-1].join(" ")
+					else 
+						th
+			for j in [...Array(y).keys()]
+				tr
+					th.hint.hinty(id="hinty"+j)=hints.y[j].join(" ")
+					for i in [...Array(x).keys()]
+						td.pixel
+							input.mx-auto(id=i.toString()+j.toString(), type="checkbox", onchange="verify()")
