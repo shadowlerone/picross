@@ -59,15 +59,15 @@ function verify() {
 		row => !row.classList.contains("h")
 	).reduce(row_to_data, initialValue = [])
 	hints = board_to_hints(board)
-	hints.x.forEach((hint,index) => {
-		if ($(`#hintx${index}`).html() == hint.join(" ")){
+	hints.x.forEach((hint, index) => {
+		if ($(`#hintx${index}`).html() == hint.join(" ")) {
 			$(`#hintx${index}`).addClass("bg-success")
 		} else {
 			$(`#hintx${index}`).removeClass("bg-success")
 		}
 	})
-	hints.y.forEach((hint,index) => {
-		if ($(`#hinty${index}`).html() == hint.join(" ")){
+	hints.y.forEach((hint, index) => {
+		if ($(`#hinty${index}`).html() == hint.join(" ")) {
 			$(`#hinty${index}`).addClass("bg-success")
 		} else {
 			$(`#hinty${index}`).removeClass("bg-success")
