@@ -12,7 +12,7 @@ mixin board(x, y)
 				th.hint.hinty(id="hinty"+j)="hint"
 				for i in [...Array(x).keys()]
 					td.pixel
-						input.mx-auto(id=i.toString()+j.toString(), type="checkbox", onchange="verify()")
+						input.mx-auto(id=i.toString()+j.toString(), type="checkbox", onchange="compute()")
 
 mixin game_board(x,y, hints)
 	table#board.table.table-bordered.table-hover.table-responsive
@@ -26,5 +26,5 @@ mixin game_board(x,y, hints)
 				tr
 					th.hint.hinty(id="hinty"+j)=hints.y[j].join(" ")
 					for i in [...Array(x).keys()]
-						td.pixel
-							input.mx-auto(id=i.toString()+j.toString(), type="checkbox", onchange="verify()")
+						td.pixel(onclick="update_pixel(this, 1)" oncontextmenu="update_pixel(this, -1)")
+							input.mx-auto.d-none(id=i.toString()+j.toString(), type="checkbox", onchange="verify()",value=0)
