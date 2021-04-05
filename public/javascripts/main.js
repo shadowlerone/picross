@@ -6,6 +6,32 @@ function init_board() {
 	});
 	verify();
 }
+
+function update_pixel(pixel, c) {
+	var currentValue = parseInt(pixel.firstChild.value);
+	var outValue;
+	if (currentValue != 0) {
+		outValue = 0;
+	} else {
+		outValue = c;
+	}
+	pixel.firstChild.value = outValue
+	pixel.classList.remove("bg-dark")
+	pixel.classList.remove("bg-secondary")
+	if (outValue == 1) {
+		pixel.firstChild.checked = true;
+		pixel.classList.add("bg-dark")
+	} else if (outValue == 0) {
+		pixel.firstChild.checked = false;
+	} else if (outValue == -1) {
+		pixel.firstChild.checked = false;
+		pixel.classList.add("bg-secondary")
+	}
+	
+	verify()
+}
+
+
 function row_to_data(a, currentValue, index, array) {
 	// console.log(`${index}: ${typeof a}, ${currentValue}, ${array}`)
 	// console.log(Array.from(currentValue.cells).filter(c => !c.classList.contains("hint")))
