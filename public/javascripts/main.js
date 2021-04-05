@@ -1,5 +1,10 @@
 function init_board() {
 	console.log("Starting.")
+	var board = document.getElementById('board');
+	board.addEventListener('contextmenu', e => {
+		e.preventDefault();
+	});
+	verify();
 }
 function row_to_data(a, currentValue, index, array) {
 	// console.log(`${index}: ${typeof a}, ${currentValue}, ${array}`)
