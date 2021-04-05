@@ -73,6 +73,15 @@ function verify() {
 			$(`#hinty${index}`).removeClass("bg-success")
 		}
 	})
+	missingy = 1
+	missingx = 1
+	if (
+		missingy == 0
+		&& missingx == 0) {
+		$("#board").addClass("bg-success")
+	} else {
+		$("#board").removeClass("bg-success")
+	}
 }
 
 function compute() {
