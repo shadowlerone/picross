@@ -8,10 +8,22 @@ body {
 a {
 	color: #00B7FF
 }
+.hint {
+	transition: background-color 0.5s;
+}
 
 .pixel>input {
 	height: 100%;
 	width : 100% // background-color: $primary;
+}
+.pixel {
+	min-width: 3rem !important;
+	min-height: 4rem !important;
+	box-sizing: border-box;
+}
+tr {
+	min-width: 2em;
+	min-height: 2em;
 }
 
 .hintx {
