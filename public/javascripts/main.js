@@ -34,24 +34,25 @@ function x_hints(board) {
 	return y_hints(transpose(board))
 }
 function board_to_hints(board) {
-	x =x_hints(board)
-	y =y_hints(board)
+	x = x_hints(board)
+	y = y_hints(board)
 	xhints = "x_hints: " + x_hints(board).join(", ")
 	yhints = "y_hints: " + y_hints(board).join(", ")
 	return { y: y, x: x }
 }
 
-function hints_on_board(hints){
-	hints.x.forEach((hint,index) => {
-		$(`#hintx${index}`).html(hint.join(", "))
+function hints_on_board(hints) {
+	hints.x.forEach((hint, index) => {
+		$(`#hintx${index}`).html(hint.join(" "))
 	})
-	hints.y.forEach((hint,index) => {
-		$(`#hinty${index}`).html(hint.join(", "))
+	hints.y.forEach((hint, index) => {
+		$(`#hinty${index}`).html(hint.join(" "))
 	})
-	$("#json").val(JSON.stringify(hints, space=4))
+	$("#json").val(JSON.stringify(hints, space = 4))
+	$("#base64").val(window.btoa(JSON.stringify({ "hints": hints, x: hints.x.length, y: hints.y.length })))
 }
 
-function verify(){
+function verify() {
 	board = Array.from(
 		$("#board").children()[0].rows
 	).filter(
